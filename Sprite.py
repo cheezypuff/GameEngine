@@ -16,8 +16,8 @@ class Sprite:
         #velocity vector
         self.velocity = np.array([0.0,0.0])
         #position vector
-        self.position = np.array([r.gauss(size[0]/2,80),
-                                  r.gauss(size[1]/2,80)])
+        self.position = np.array([float(r.randint(0,size[0])),
+                                  float(r.randint(0,size[1]))])
         
         
     def update(self,dtime):
@@ -30,6 +30,7 @@ class Sprite:
     def draw(self,screen):
         screen.blit(self.anim.getFrame().img,self.position.tolist())
         #() tuple a list that can't be modified
+
 
     
         

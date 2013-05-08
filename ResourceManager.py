@@ -18,14 +18,49 @@ class ResourceManager:
         flash.addFrame(self.getImage("cronoflip"),500)
         self.animations["ahhh"]=flash
 
+        leftRun = Animation()
+        leftRun.addFrame(self.getImage("left1"), 200)
+        leftRun.addFrame(self.getImage("left2"), 200)
+        leftRun.addFrame(self.getImage("left3"), 200)
+        self.animations["left"] = leftRun
+        
+        
+
     def loadImages(self):
         """Loads all images for game"""
         self.loadImage("crono", 
-                       "./Resources/Images/crono.png",
+                       "./Resources/Images/crono.gif",
                        (255,255,255,0)) #third argument is a key, white, and zero alpha meaning white is going to be transparent
         self.loadImage("cronoflip", 
-                       "./Resources/Images/cronoflip.png",
+                       "./Resources/Images/cronoflip.gif",
                        (255,255,255,0))
+        self.loadImage("left1", 
+                       "./Resources/Images/left1.gif",
+                       (255,255,255,0))
+        self.loadImage("left2", 
+                       "./Resources/Images/left2.gif",
+                       (255,255,255,0))
+        self.loadImage("left3", 
+                       "./Resources/Images/left3.gif",
+                       (255,255,255,0))
+        self.loadImage("right1", 
+                       "./Resources/Images/right1.gif",
+                       (255,255,255,0))
+        self.loadImage("right2", 
+                       "./Resources/Images/right2.gif",
+                       (255,255,255,0))
+        self.loadImage("right3", 
+                       "./Resources/Images/right3.gif",
+                       (255,255,255,0))
+           
+
+
+
+
+
+
+
+        
 
 
 

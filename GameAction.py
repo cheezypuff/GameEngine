@@ -28,12 +28,17 @@ class GameAction:
             state=self.__class__.STATE_PRESSED
 
     def release(self):
+        print("Release called")
         self.state=self.__class__.STATE_RELEASED
 
     def isPressed(self):
         return (self.getAmount() != 0)
 
+    def peek(self):
+        return self.amount
+
     def getAmount (self):
+        print("State = " + str(self.state))
         retVal = self.amount
         if retVal != 0:
             if self.state==self.__class__.STATE_RELEASED:
