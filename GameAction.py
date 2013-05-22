@@ -1,12 +1,12 @@
 
 class GameAction:
     #behavior states
-    NORMAL=0
-    DETECT_INITIAL_PRESS_ONLY=1
+    NORMAL = 0
+    DETECT_INITIAL_PRESS_ONLY = 1
 
     #button states
-    STATE_RELEASED=0
-    STATE_PRESSED=STATE_WAITING_FOR_RELEASE=2
+    STATE_RELEASED = 0
+    STATE_PRESSED = STATE_WAITING_FOR_RELEASE = 2
 
     #constructor
     def __init__(self, name, behavior=NORMAL):
@@ -15,7 +15,7 @@ class GameAction:
         self.reset()
     
     def reset(self):
-        self.state=self.__class__.STATE_RELEASED
+        self.state=GameAction.STATE_RELEASED
         self.amount=0
 
     def tap(self):
@@ -23,13 +23,12 @@ class GameAction:
         self.release()
 
     def press(self, n=1):
-        if self.state != self.__class__.STATE_WAITING_FOR_RELEASE:
-            self.amount+=n
-            state=self.__class__.STATE_PRESSED
+        if self.state != GameAction.STATE_WAITING_FOR_RELEASE:
+            self.amount += n
+            self.state = GameAction.STATE_PRESSED
 
     def release(self):
-        print("Release called")
-        self.state=self.__class__.STATE_RELEASED
+        self.state=self.STATE_RELEASED
 
     def isPressed(self):
         return (self.getAmount() != 0)
@@ -38,15 +37,16 @@ class GameAction:
         return self.amount
 
     def getAmount (self):
-        print("State = " + str(self.state))
+        
         retVal = self.amount
         if retVal != 0:
-            if self.state==self.__class__.STATE_RELEASED:
+            if self.state == GameAction.STATE_RELEASED:
+                print("Reset because released")
                 self.amount=0
 
-            elif behavior==self.__class__.DETECT_INITIAL_PRESS_ONLY:
-                self.state = self.__class__.WAITING_FOR_RELEASE
+            elif self.behavior == GameAction.DETECT_INITIAL_PRESS_ONLY:
+                print("Reset because dectect initial press only")
+                self.state = GameAction.WAITING_FOR_RELEASE
                 self.amount = 0
-
         return retVal
     
