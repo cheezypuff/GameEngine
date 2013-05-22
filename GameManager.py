@@ -38,8 +38,6 @@ class GameManager:
         if self.reset.getAmount() > 0:
             self.W.reset()
 
-        print(self.a.peek())
-        
         if self.a.getAmount() > 0:
             self.W.left()
         elif self.d.getAmount() > 0:
